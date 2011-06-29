@@ -29,10 +29,10 @@ export KBASH=`dirname $scriptpath`
 unset TERMCAP
 
 # Standard aliases
-alias ls='ls --color=auto'
-alias dir='ls --color=auto --format=long'
-alias dirs='ls --color=auto --format=long -d */'
-alias dirf='ls --format=long --classify | egrep -v "/$"'
+alias ls='ls --color'
+alias dir='ls --color --format=long'
+alias dirs='ls --color --format=long -d */'
+alias dirf='ls --color --format=long --classify | egrep -v "/$"'
 alias scpresume='rsync --partial --progress --rsh=ssh'
 alias gitall='git commit -a -m'
 alias ipcalc='ipcalc --nocolor'
@@ -42,6 +42,7 @@ alias g='ack-grep'
 # Colorized grepping
 alias grep='grep --color'
 alias egrep='egrep --color'
+alias less='less -R'
 
 # Include a colors file
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
