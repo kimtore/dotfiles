@@ -76,4 +76,4 @@ xterm*|rxvt*)
 esac
 
 # load keychain
-[ -x /usr/bin/keychain ] && eval `keychain -q -Q --eval id_rsa`
+[ -x /usr/bin/keychain ] && [ `id -u` -ne 0 ] && eval `keychain -q -Q --eval id_rsa`
