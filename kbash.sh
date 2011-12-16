@@ -44,6 +44,9 @@ alias grep='grep --color'
 alias egrep='egrep --color'
 alias less='less -R'
 
+# Vimrc on all systems
+alias vim="vim -u $KBASH/rc/.vimrc"
+
 # Include a colors file
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
 
