@@ -29,6 +29,7 @@ export KBASH=`dirname $scriptpath`
 unset TERMCAP
 
 # Standard aliases
+alias c='clear'
 alias ls='ls --color'
 alias dir='ls --color --format=long'
 alias dirs='ls --color --format=long -d */'
