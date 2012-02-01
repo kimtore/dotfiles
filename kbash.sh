@@ -64,9 +64,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 
 # Set prompt
 if [ `id -u` -eq 0 ]; then
-	export PS1="$GRAY\t [$WHITE[$HOSTCOLOR \h $WHITE]$GRAY] $ROOTCOLOR\u$GRAY:$ROOTDIRCOLOR\w$WHITE # $NOCOLOR"
+	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u$GRAY $ROOTDIRCOLOR\w$WHITE # $NOCOLOR"
 else
-	export PS1="$GRAY\t [$WHITE[$HOSTCOLOR \h $WHITE]$GRAY] $NAMECOLOR\u$GRAY:$DIRCOLOR\w$GRAY $ $NOCOLOR"
+	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u$GRAY $DIRCOLOR\w$GRAY $ $NOCOLOR"
 fi
 
 # Xterm title
