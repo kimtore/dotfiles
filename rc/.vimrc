@@ -3,6 +3,7 @@ source /etc/vim/vimrc
 
 " kbash vim
 syntax on
+filetype plugin indent on
 set ttymouse=xterm
 set visualbell
 set mouse=a
@@ -26,8 +27,8 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
 " http://www.vex.net/~x/python_and_vim.html
-set tabstop=4           " use 4 spaces to represent tab
-set shiftwidth=4        " number of spaces to use for auto indent
+set tabstop=4
+set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
@@ -43,6 +44,9 @@ map <C-N> <Esc>:new<CR><C-W>_
 map <C-J> <Esc>:split<CR><C-W>_
 map <C-K> <Esc>:quit<CR><C-W>_
 set wmh=0 
+
+" don't use Ex mode
+map Q <Nop>
 
 " switch between header and cpp file
 map <C-h> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
