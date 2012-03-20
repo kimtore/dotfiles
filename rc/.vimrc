@@ -1,6 +1,3 @@
-" global settings
-source /etc/vim/vimrc
-
 " kbash vim
 syntax on
 filetype plugin indent on
@@ -10,6 +7,7 @@ set mouse=a
 set bs=2
 set ruler
 set background=dark
+set nocindent
 set smartindent
 set smartcase
 set showmode
