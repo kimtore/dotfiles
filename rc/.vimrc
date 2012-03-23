@@ -9,18 +9,26 @@ set ruler
 set background=dark
 set nocindent
 set smartindent
-set smartcase
 set showmode
 set modeline
+set nu
+
+" proper searching
+set ignorecase
+set smartcase
 set nohlsearch
 set noincsearch
-set nu
+nnoremap / /\v
+vnoremap / /\v
 
 " python indenting
 autocmd BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
 " trim whitespace from saved files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+" remap leader key
+let mapleader = ','
 
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
