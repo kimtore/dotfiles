@@ -42,6 +42,7 @@ alias gitall='git commit -a -m'
 alias ipcalc='ipcalc --nocolor'
 alias tax='tmux detach && tmux attach || tmux'
 alias g='ack-grep'
+alias ..='cd ..'
 
 # Colorized grepping
 alias grep='grep --color'
