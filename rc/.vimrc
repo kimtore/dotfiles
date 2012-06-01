@@ -30,6 +30,9 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 " remap leader key
 let mapleader = ','
 
+" sparkup mapping breaks scroll-down, remap it
+let g:sparkupExecuteMapping = '<c-p>'
+
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
 " http://www.vex.net/~x/python_and_vim.html
