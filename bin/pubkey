@@ -1,2 +1,7 @@
 #!/bin/sh
-cat ~/.ssh/id_rsa.pub | xclip
+which xclip >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    cat ~/.ssh/id_rsa.pub | xclip
+else
+    cat ~/.ssh/id_rsa.pub
+fi

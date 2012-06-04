@@ -1,4 +1,5 @@
 #!/bin/bash
-# Copy the absolute path of the referenced file to the clipboard
-readlink -n -m $* | xclip
+# Print the absolute path of the referenced file, and try to copy to the clipboard
 readlink -m $*
+which xclip >/dev/null 2>&1
+[ $? -eq 0 ] && readlink -n -m $* | xclip
