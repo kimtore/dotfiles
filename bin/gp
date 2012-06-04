@@ -1,0 +1,4 @@
+#!/bin/bash
+# Copy the absolute path of the referenced file to the clipboard
+readlink -n -m $* | xclip
+readlink -m $*
