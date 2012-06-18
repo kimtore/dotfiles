@@ -1,0 +1,19 @@
+#!/bin/bash
+
+KBASH="`dirname $0`/../"
+KBASH=`readlink -m $KBASH`
+echo "Setting up kbash in home directory, source = $KBASH"
+
+cd ~
+echo "copying rc files..."
+for rcfile in `find $KBASH/rc -type f`; do
+    base=`basename $rcfile`
+    rm -f ~/$base
+    ln -s $rcfile $base
+    echo "* $base"
+done
+
+echo "replacing bashrc..."
+echo "source $KBASH/kbash.sh" > ~/.bashrc
+
+echo "done, please source ~/.bashrc"
