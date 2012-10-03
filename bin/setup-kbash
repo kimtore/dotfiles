@@ -16,4 +16,22 @@ done
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc
 
+if [ ! -f ".ssh/authorized_keys" ]; then
+    echo "No authorized_keys file found. Paste your public key now and end with newline."
+else
+    echo "An authorized_keys file has been found."
+    echo "If you want to add a key, paste your public key now and end with newline."
+fi
+
+echo -n "pubkey> "
+read pubkey
+if [ "$pubkey" != "" ]; then
+    mkdir -m 0700 -p .ssh
+    touch .ssh/authorized_keys
+    chmod 600 .ssh/authorized_keys
+    echo $pubkey >> .ssh/authorized_keys
+else
+    echo "NOT altering authorized_keys file."
+fi
+
 echo "done, please source ~/.bashrc"
