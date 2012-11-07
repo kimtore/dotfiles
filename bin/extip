@@ -1,2 +1,2 @@
 #!/bin/sh
-curl http://www.incendio.no/ip.php 2>/dev/null
+curl http://incendio.no/ip.php 2>/dev/null
