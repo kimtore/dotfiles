@@ -13,6 +13,9 @@ for rcfile in `find $KBASH/rc -type f`; do
     echo "* $base"
 done
 
+echo "setting up vim..."
+ln -s $KBASH/vim ~/.vim
+
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc
 
