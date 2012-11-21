@@ -24,6 +24,9 @@ vnoremap / /\v
 " python indenting
 autocmd BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
+" don't move comments to start of line
+inoremap # X<c-h>#
+
 " trim whitespace from saved files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
@@ -53,6 +56,10 @@ map <C-N> <Esc>:new<CR><C-W>_
 map <C-J> <Esc>:split<CR><C-W>_
 map <C-K> <Esc>:quit<CR><C-W>_
 set wmh=0 
+
+" NERD tree
+map <C-D> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
 
 " don't use Ex mode
 map Q <Nop>
