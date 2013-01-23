@@ -21,6 +21,9 @@ set noincsearch
 nnoremap / /\v
 vnoremap / /\v
 
+" never switch on cindent
+autocmd BufRead * set nocindent
+
 " python indenting
 autocmd BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
