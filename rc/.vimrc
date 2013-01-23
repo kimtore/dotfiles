@@ -39,6 +39,13 @@ let mapleader = ','
 " sparkup mapping breaks scroll-down, remap it
 let g:sparkupExecuteMapping = '<c-p>'
 
+" map :W to write with create directory
+function WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
+command W call WriteCreatingDirs()
+
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
 " http://www.vex.net/~x/python_and_vim.html
