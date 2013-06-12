@@ -17,6 +17,7 @@ done
 
 echo "setting up vim..."
 ln -s $KBASH/vim ~/.vim
+mkdir -p ~/.vimtemp/
 
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc

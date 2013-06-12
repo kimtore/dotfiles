@@ -21,6 +21,10 @@ set noincsearch
 nnoremap / /\v
 vnoremap / /\v
 
+" write backup files to single directory
+set directory=~/.vimtemp
+set backupdir=~/.vimtemp
+
 " never switch on cindent
 autocmd BufRead * set nocindent
 
