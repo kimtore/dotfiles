@@ -35,6 +35,7 @@ unset TERMCAP
 alias c='clear'
 alias ls='ls --color'
 alias dir='ls --color --format=long'
+alias dri='ls --color --format=long'
 alias dirs='ls --color --format=long -d */'
 alias dirf='ls --color --format=long --classify | egrep -v "/$"'
 alias scpresume='rsync --partial --progress --rsh=ssh'
