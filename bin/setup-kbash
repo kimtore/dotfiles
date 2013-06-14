@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 KBASH="`dirname $0`/../"
 KBASH=`readlink -m $KBASH`
 echo "Setting up kbash in home directory, source = $KBASH"
@@ -15,6 +17,7 @@ done
 
 echo "setting up vim..."
 ln -s $KBASH/vim ~/.vim
+mkdir -p ~/.vimtemp/
 
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc

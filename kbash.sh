@@ -42,6 +42,7 @@ alias scpresume='rsync --partial --progress --rsh=ssh'
 alias gitall='git commit -a -m'
 alias ipcalc='ipcalc --nocolor'
 alias tax='tmux detach && tmux attach || tmux'
+alias mkp='makepasswd --chars=30'
 alias g='ack-grep'
 alias ..='cd ..'
 
