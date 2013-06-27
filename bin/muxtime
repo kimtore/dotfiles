@@ -1,0 +1,2 @@
+#!/bin/sh
+uptime | awk -F'average: ' '{print "load: " $2}'
