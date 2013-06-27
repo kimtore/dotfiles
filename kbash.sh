@@ -68,19 +68,16 @@ export LESS_TERMCAP_ue=$'\E[0m'
 
 # Set prompt
 if [ `id -u` -eq 0 ]; then
-	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u$GRAY $ROOTDIRCOLOR\w$WHITE # $NOCOLOR"
+	PROMPT_COMMAND='es=$?; [[ $es -eq 0 ]] && sign=$(echo -e "\033[1;37m #") || sign=$(echo -e "\033[1;31m #")'
+	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u$GRAY $ROOTDIRCOLOR\w\$sign $NOCOLOR"
 else
-	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u$GRAY $DIRCOLOR\w$GRAY $ $NOCOLOR"
+	PROMPT_COMMAND='es=$?; [[ $es -eq 0 ]] && sign=$(echo -e "\033[1;30m \$") || sign=$(echo -e "\033[0;31m \$")'
+	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u$GRAY $DIRCOLOR\w\$sign $NOCOLOR"
 fi
-
-# Xterm title
-case "$TERM" in
-xterm*|rxvt*)
-	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-	;;
-*)
-	;;
-esac
 
 # load keychain
 [ -x /usr/bin/keychain ] && [ `id -u` -ne 0 ] && eval `keychain -q -Q --eval id_rsa`
+
+return 0
+
+# vi: se noet:
