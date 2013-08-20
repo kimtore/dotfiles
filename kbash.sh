@@ -46,6 +46,10 @@ alias mkp='makepasswd --chars=30'
 alias g='ack-grep'
 alias ..='cd ..'
 
+# Apt
+alias ac='sudo apt-cache'
+alias ai='sudo apt-get install'
+
 # Colorized grepping
 alias grep='grep --color'
 alias egrep='egrep --color'
