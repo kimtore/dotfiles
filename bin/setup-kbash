@@ -4,10 +4,11 @@ set -e
 
 KBASH="`dirname $0`/../"
 KBASH=`readlink -m $KBASH`
+vim=~/.vim
 echo "Setting up kbash in home directory, source = $KBASH"
 
 cd ~
-echo "copying rc files..."
+echo "Copying rc files..."
 for rcfile in `find $KBASH/rc -type f`; do
     base=`basename $rcfile`
     rm -f ~/$base
@@ -15,8 +16,19 @@ for rcfile in `find $KBASH/rc -type f`; do
     echo "* $base"
 done
 
-echo "setting up vim..."
-ln -s $KBASH/vim ~/.vim
+echo "Setting up vim..."
+if [ -e "$vim" ]; then
+    echo -n "Warning: ~/.vim already exists. Do you want to delete it and replace it with the kbash version? [y/N] "
+    read yesno
+    if [ "$yesno" == "y" ] || [ "$yesno" == "Y" ]; then
+        echo "Removing ~/.vim..."
+        rm -rf $vim
+    else
+        echo "NOT touching ~/.vim."
+    fi
+fi
+
+[ ! -e "$vim" ] && ln -s $KBASH/vim ~/.vim
 mkdir -p ~/.vimtemp/
 
 echo "replacing bashrc..."
