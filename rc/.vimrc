@@ -1,4 +1,10 @@
-" kbash vim
+"""""""""""""""""
+""" Kim's Vim """
+"""""""""""""""""
+
+" pathogen
+execute pathogen#infect()
+
 syntax on
 filetype plugin indent on
 set ttymouse=xterm

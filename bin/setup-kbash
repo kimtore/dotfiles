@@ -4,7 +4,10 @@ set -e
 
 KBASH="`dirname $0`/../"
 KBASH=`readlink -m $KBASH`
+
 vim=~/.vim
+mc=~/.mc
+
 echo "Setting up kbash in home directory, source = $KBASH"
 
 cd ~
@@ -21,7 +24,7 @@ if [ -e "$vim" ]; then
     echo -n "Warning: ~/.vim already exists. Do you want to delete it and replace it with the kbash version? [y/N] "
     read yesno
     if [ "$yesno" == "y" ] || [ "$yesno" == "Y" ]; then
-        echo "Removing ~/.vim..."
+        echo "Replacing ~/.vim..."
         rm -rf $vim
     else
         echo "NOT touching ~/.vim."
@@ -30,6 +33,20 @@ fi
 
 [ ! -e "$vim" ] && ln -s $KBASH/vim ~/.vim
 mkdir -p ~/.vimtemp/
+
+echo "Setting up mc..."
+if [ -e "$vim" ]; then
+    echo -n "Warning: ~/.mc already exists. Do you want to delete it and replace it with the kbash version? [y/N] "
+    read yesno
+    if [ "$yesno" == "y" ] || [ "$yesno" == "Y" ]; then
+        echo "Replacing ~/.mc..."
+        rm -rf $vim
+    else
+        echo "NOT touching ~/.mc."
+    fi
+fi
+
+[ ! -e "$mc" ] && ln -s $KBASH/mc ~/.mc
 
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc

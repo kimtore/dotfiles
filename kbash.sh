@@ -21,6 +21,12 @@ export HISTCONTROL=ignoredups
 # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# append to .bash_history instead of overwrite.
+shopt -s histappend
+
+# write to .bash_history immediately.
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
