@@ -1,0 +1,54 @@
+shell_patterns=0
++ ! t t
+0       Do something on the current file
+	CMD=%{Enter command}
+	$CMD %f
+
++ t t
+0       Do something on the tagged files
+	set %t; CMD=%{Enter command}
+	while [ -n "$1" ]; do
+	  $CMD "$1"
+	  shift
+	done
+
+7       Create this directory in the opposite panel
+	Pwd=`basename %d`
+	mkdir %D/$Pwd
+
++t t
+i       Create an ISO image of the tagged files
+	set %t;
+	FN=%{File name of ISO file}
+	VOL=%{Volume name}
+	genisoimage -J -R -V "$VOL" -o "$FN" "${@}"
+	if [ $? != 0 ]; then
+		echo "Error, no iso created."
+		sleep 3
+	fi
+
+I       Create an ISO image of the current directory
+	FN=%{File name of ISO file}
+	VOL=%{Volume name}
+	genisoimage -J -R -V "$VOL" -o "$FN" .
+
+s       Create MP3s of tagged files
+	set %t
+	while [ -n "$1" ]; do
+		DEST="%D" stereo "$1"
+		shift
+	done
+
+=+ f \.iso$
+m       Mount the current ISO image in /mnt
+	MOUNTED=`mount | grep "on /mnt" | wc -l`
+	if [ $MOUNTED == 1 ]; then
+		echo "/mnt is busy - unmount it first"
+		exit 1
+	fi
+	sudo mount -o loop %f /mnt
+	ls -l --color=always /mnt
+
+M       Unmount whatever is in /mnt
+	sudo umount /mnt
+
