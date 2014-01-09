@@ -5,9 +5,6 @@ set -e
 KBASH="`dirname $0`/../"
 KBASH=`readlink -m $KBASH`
 
-vim=~/.vim
-mc=~/.mc
-
 echo "Setting up kbash in home directory, source = $KBASH"
 
 cd ~
@@ -20,33 +17,33 @@ for rcfile in `find $KBASH/rc -type f`; do
 done
 
 echo "Setting up vim..."
-if [ -e "$vim" ]; then
+if [ -e ".vim" ]; then
     echo -n "Warning: ~/.vim already exists. Do you want to delete it and replace it with the kbash version? [y/N] "
     read yesno
     if [ "$yesno" == "y" ] || [ "$yesno" == "Y" ]; then
         echo "Replacing ~/.vim..."
-        rm -rf $vim
+        rm -rf .vim
     else
         echo "NOT touching ~/.vim."
     fi
 fi
 
-[ ! -e "$vim" ] && ln -s $KBASH/vim ~/.vim
-mkdir -p ~/.vimtemp/
+[ ! -e ".vim" ] && ln -s $KBASH/vim ~/.vim
+mkdir -p .vimtemp
 
 echo "Setting up mc..."
-if [ -e "$vim" ]; then
+if [ -e ".mc" ]; then
     echo -n "Warning: ~/.mc already exists. Do you want to delete it and replace it with the kbash version? [y/N] "
     read yesno
     if [ "$yesno" == "y" ] || [ "$yesno" == "Y" ]; then
         echo "Replacing ~/.mc..."
-        rm -rf $vim
+        rm -rf .mc
     else
         echo "NOT touching ~/.mc."
     fi
 fi
 
-[ ! -e "$mc" ] && ln -s $KBASH/mc ~/.mc
+[ ! -e ".mc" ] && ln -s $KBASH/mc ~/.mc
 
 echo "replacing bashrc..."
 echo "source $KBASH/kbash.sh" > ~/.bashrc
