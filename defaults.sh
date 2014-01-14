@@ -12,5 +12,8 @@ export DIRCOLOR=$CYAN
 
 # globals
 export PATH=$PATH:~/bin:$KBASH/bin
+
+# vim
 export VISUAL="vim"
 export EDITOR=$VISUAL
+export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
