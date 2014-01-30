@@ -2,9 +2,6 @@
 """ Kim's Vim """
 """""""""""""""""
 
-" pathogen
-execute pathogen#infect()
-
 syntax on
 filetype plugin indent on
 set ttymouse=xterm
@@ -18,6 +15,13 @@ set smartindent
 set showmode
 set modeline
 set nu
+
+" pathogen
+execute pathogen#incubate()
+" In certain Vim versions, and with a global config that sets :syntax on
+" before ~/.vimrc is loaded, #infect breaks filetype detection.
+" https://github.com/tpope/vim-pathogen/issues/38
+"execute pathogen#infect()
 
 " proper searching
 set ignorecase
