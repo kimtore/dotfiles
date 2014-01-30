@@ -1,22 +1,13 @@
-#!/bin/bash
-#
-# Modify a Date: header in an email to show date in local time.
-# From http://unix.stackexchange.com/questions/18651/how-do-i-configure-mutt-to-display-the-date-header-in-my-local-time-zone-in-the
+#!/usr/bin/perl -n
 
-TMPFILE=$(mktemp)
+use Date::Parse;
+use POSIX;
+use strict;
 
-# save the message to a file
-cat - >"$TMPFILE"
-
-# extract the date header
-DATE=$( formail -xDate: < "$TMPFILE" )
-
-# convert to the current timezone (defined by TZ)
-DATE=$( date -R -d "$DATE" )
-
-# output the modified message
-echo "Date: $DATE"
-formail -fI Date < "$TMPFILE"
-
-# clean up
-shred -fu "$TMPFILE"
+if (/^Date: /) {
+    my $datestr = substr($_, length ("Date: "));
+    my $date = strftime("%a, %d %b %Y %T %z (%Z)", localtime (str2time ($datestr)));
+    print "Date: $date\n";
+} else {
+    print;
+}
