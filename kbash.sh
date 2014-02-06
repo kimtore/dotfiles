@@ -34,6 +34,12 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 scriptpath=$BASH_ARGV
 export KBASH=`dirname $scriptpath`
 
+# Environment variables
+export PATH=$PATH:~/bin:$KBASH/bin
+export VISUAL="vim"
+export EDITOR=$VISUAL
+export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
+
 # «old and crusty»
 unset TERMCAP
 
@@ -64,8 +70,15 @@ alias less='less -R'
 # Include a colors file
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
 
-# Load preferences
-[ -f "$KBASH/defaults.sh" ] && source $KBASH/defaults.sh
+# Prompt colors
+export ROOTNAMECOLOR=$LTRED
+export ROOTHOSTCOLOR=$LTRED
+export ROOTDIRCOLOR=$RED
+export USERNAMECOLOR=$GREEN
+export USERHOSTCOLOR=$CYAN
+export USERDIRCOLOR=$BROWN
+
+# Site-local configuration
 [ -f "$KBASH/custom.sh" ] && source $KBASH/custom.sh
 
 # Fancy manpages
@@ -78,9 +91,11 @@ export LESS_TERMCAP_ue=$'\E[0m'
 
 # Set prompt
 if [ `id -u` -eq 0 ]; then
-	PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
+	#PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
+	PROMPT_COMMAND='PS1="$GRAY\t $ROOTNAMECOLOR\u$NOCOLOR@$ROOTHOSTCOLOR\h $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
 else
-	PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u $DIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
+	#PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u $DIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
+	PROMPT_COMMAND='PS1="$GRAY\t $USERNAMECOLOR\u$NOCOLOR@$USERHOSTCOLOR\h $USERDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
 fi
 
 # load keychain
