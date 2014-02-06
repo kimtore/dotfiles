@@ -78,11 +78,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 
 # Set prompt
 if [ `id -u` -eq 0 ]; then
-	PROMPT_COMMAND='es=$?; [[ $es -eq 0 ]] && sign=$(echo -e "\033[1;37m #") || sign=$(echo -e "\033[1;31m #")'
-	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u$GRAY $ROOTDIRCOLOR\w\$sign $NOCOLOR"
+	PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $ROOTCOLOR\u $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
 else
-	PROMPT_COMMAND='es=$?; [[ $es -eq 0 ]] && sign=$(echo -e "\033[1;30m \$") || sign=$(echo -e "\033[0;31m \$")'
-	export PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u$GRAY $DIRCOLOR\w\$sign $NOCOLOR"
+	PROMPT_COMMAND='PS1="$GRAY\t ($HOSTCOLOR \h $GRAY) $NAMECOLOR\u $DIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
 fi
 
 # load keychain
