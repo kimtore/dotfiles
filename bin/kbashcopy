@@ -1,0 +1,14 @@
+#!/bin/bash
+# Copy the kbash configuration to another system
+
+set -e
+host=$1
+
+if [ "$host" == "" ]; then
+    echo "Syntax: `basename $0` [user@]host"
+    exit 1
+fi
+
+ssh-copy-id $host
+rsync -av ~/.kbash $host:
+ssh $host 'yes "" | ~/.kbash/bin/setup-kbash'
