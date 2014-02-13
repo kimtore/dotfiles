@@ -50,6 +50,11 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 " remap leader key
 let mapleader = ','
 
+" don't intrude into my clipboard please
+if has("clipboard")
+    set clipboard-=autoselect
+endif
+
 " sparkup mapping breaks scroll-down, remap it
 let g:sparkupExecuteMapping = '<c-p>'
 
