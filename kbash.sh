@@ -31,7 +31,7 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 # KBASH: where are the source file tree?
-scriptpath=$BASH_ARGV
+scriptpath=`readlink -m $BASH_ARGV`
 export KBASH=`dirname $scriptpath`
 
 # Environment variables
