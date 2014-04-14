@@ -59,11 +59,11 @@ endif
 let g:sparkupExecuteMapping = '<c-p>'
 
 " map :W to write with create directory
-function WriteCreatingDirs()
+function! WriteCreatingDirs()
     execute ':silent !mkdir -p %:h'
     write
 endfunction
-command W call WriteCreatingDirs()
+command! W call WriteCreatingDirs()
 
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
