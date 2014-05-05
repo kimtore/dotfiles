@@ -2,13 +2,18 @@
 # Copy the kbash configuration to another system
 
 set -e
-host=$1
 
-if [ "$host" == "" ]; then
-    echo "Syntax: `basename $0` [user@]host"
+if [ "$1" == "" ]; then
+    echo "Syntax: `basename $0` [user@]host [[user@]host] [...]"
     exit 1
 fi
 
-ssh-copy-id $host
-rsync -av ~/.kbash $host:
-ssh $host 'yes "" | ~/.kbash/bin/setup-kbash'
+for host
+do
+    echo "**********"
+    echo "Installing kbash on $host"
+    echo "**********"
+    ssh-copy-id $host >/dev/null
+    rsync -aq ~/.kbash $host:
+    ssh $host 'yes "" | ~/.kbash/bin/setup-kbash'
+done
