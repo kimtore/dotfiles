@@ -1,0 +1,20 @@
+#!/bin/bash
+# Remove cached SSH host keys for a number of hosts
+
+set -e
+
+if [ "$1" == "" ]; then
+    echo "Syntax: `basename $0` host1 [host2..N]"
+    exit 1
+fi
+
+for host
+do
+    echo "* Removing $host..."
+    ssh-keygen -q -R $host >/dev/null
+    for ip in `host $host | egrep "$host\..* has address " | awk '{print $NF}'`
+    do
+        echo "* Removing $host IP address $ip..."
+        ssh-keygen -q -R $ip >/dev/null
+    done
+done
