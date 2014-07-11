@@ -56,7 +56,12 @@ alias ipcalc='ipcalc --nocolor'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias mkp='makepasswd --chars=30'
 alias g='ack-grep'
+
+# Fast directory traversal
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Apt
 alias ac='sudo apt-cache'
