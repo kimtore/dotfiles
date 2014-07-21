@@ -4,16 +4,25 @@
 set -e
 
 if [ "$1" == "" ]; then
-    echo "Syntax: `basename $0` [user@]host [[user@]host] [...]"
+    echo "Syntax: `basename $0` [user@]host[:port] [[user@]host][:port] [...]"
     exit 1
 fi
 
 for host
 do
+    port=`echo $host | cut -d: -f2`
+    host=`echo $host | cut -d: -f1`
+    if [ "$port" == "" ]; then
+        port="22"
+    fi
     echo "**********"
-    echo "Installing kbash on $host"
+    echo -n "Installing kbash on $host"
+    if [ "$port" != "22" ]; then
+        echo -n " (port $port)"
+    fi
+    echo
     echo "**********"
-    ssh-copy-id $host >/dev/null
-    rsync -aq ~/.kbash $host:
-    ssh $host 'yes "" | ~/.kbash/bin/setup-kbash'
+    ssh-copy-id "$host -p $port" >/dev/null
+    rsync -e "ssh -p $port" -aq ~/.kbash $host:
+    ssh -p $port $host 'yes "" | ~/.kbash/bin/setup-kbash'
 done
