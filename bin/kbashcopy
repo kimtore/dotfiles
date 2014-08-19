@@ -12,7 +12,7 @@ for host
 do
     port=`echo $host | cut -d: -f2`
     host=`echo $host | cut -d: -f1`
-    if [ "$port" == "" ]; then
+    if [ "$port" == "$host" ]; then
         port="22"
     fi
     echo "**********"
