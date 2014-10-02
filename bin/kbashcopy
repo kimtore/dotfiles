@@ -22,7 +22,7 @@ do
     fi
     echo
     echo "**********"
-    ssh-copy-id "$host -p $port" >/dev/null
+    ssh-copy-id $host -p $port >/dev/null
     rsync -e "ssh -p $port" -aq ~/.kbash $host:
     ssh -p $port $host 'yes "" | ~/.kbash/bin/setup-kbash'
 done
