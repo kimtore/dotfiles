@@ -35,6 +35,7 @@ scriptpath=`readlink -m $BASH_ARGV`
 export KBASH=`dirname $scriptpath`
 
 # Environment variables
+export LC_ALL="en_US.UTF-8"
 export PATH=$PATH:~/bin:$KBASH/bin
 export VISUAL="vim"
 export EDITOR=$VISUAL
