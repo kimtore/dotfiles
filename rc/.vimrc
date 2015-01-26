@@ -16,6 +16,13 @@ set showmode
 set modeline
 set nu
 
+" Zenburn color scheme
+if &t_Co > 255
+    let g:zenburn_high_Contrast = 1
+    let g:zenburn_transparent = 1
+    colorscheme zenburn
+end
+
 " pathogen
 execute pathogen#incubate()
 " In certain Vim versions, and with a global config that sets :syntax on

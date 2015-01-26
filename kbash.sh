@@ -37,7 +37,7 @@ export KBASH=`dirname $scriptpath`
 # Environment variables
 export LC_ALL="en_US.UTF-8"
 export PATH=$PATH:~/bin:$KBASH/bin
-export VISUAL="vim"
+export VISUAL="TERM=xterm-256color /usr/bin/vim"
 export EDITOR=$VISUAL
 export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
 
@@ -57,6 +57,7 @@ alias ipcalc='ipcalc --nocolor'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias mkp='makepasswd --chars=30'
 alias g='ack-grep'
+alias vim="$VISUAL"
 
 # Fast directory traversal
 alias ..='cd ..'
