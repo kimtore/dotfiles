@@ -1,2 +1,3 @@
-#!/bin/sh
-setxkbmap -model pc105 -layout no -variant ""
+#!/bin/bash
+setxkbmap -model pc105 -layout no -variant "" -option lv3:ralt_switch_multikey
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
