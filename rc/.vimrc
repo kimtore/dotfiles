@@ -16,8 +16,13 @@ set showmode
 set modeline
 set nu
 
+" GUI options
+if has("gui_running")
+    set guifont=Inconsolata\ Medium\ 10
+end
+
 " Zenburn color scheme
-if &t_Co > 255
+if &t_Co > 255 || has("gui_running")
     let g:zenburn_high_Contrast = 1
     let g:zenburn_transparent = 1
     colorscheme zenburn
