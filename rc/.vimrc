@@ -15,6 +15,7 @@ set smartindent
 set showmode
 set modeline
 set nu
+set nofoldenable
 
 " GUI options
 if has("gui_running")
