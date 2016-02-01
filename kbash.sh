@@ -98,9 +98,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 
 # Set prompt
 if [ `id -u` -eq 0 ]; then
-	PROMPT_COMMAND='PS1="$LTGRAY\t $ROOTNAMECOLOR\u$NOCOLOR@$ROOTHOSTCOLOR\h $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[0\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
+	PROMPT_COMMAND='PS1="$ROOTNAMECOLOR\u$NOCOLOR@$ROOTHOSTCOLOR\h $ROOTDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[1\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`# $NOCOLOR"'
 else
-	PROMPT_COMMAND='PS1="$LTGRAY\t $USERNAMECOLOR\u$NOCOLOR@$USERHOSTCOLOR\h $USERDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[0\\\;37m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
+	PROMPT_COMMAND='PS1="$USERNAMECOLOR\u$NOCOLOR@$USERHOSTCOLOR\h $USERDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[0\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
 fi
 
 # load keychain
