@@ -1,5 +1,4 @@
 #!/bin/sh
-printf '\033k%s\033\\' 'syslog'
 multitail=`which multitail`
 if [ $? -eq 0 ]; then
     sudo $multitail /var/log/syslog
