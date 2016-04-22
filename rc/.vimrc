@@ -22,12 +22,13 @@ if has("gui_running")
     set guifont=Inconsolata\ Medium\ 10
 end
 
+" Force 256-color
+set t_Co=256
+
 " Zenburn color scheme
-if &t_Co > 255 || has("gui_running")
-    let g:zenburn_high_Contrast = 1
-    let g:zenburn_transparent = 1
-    colorscheme zenburn
-end
+let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent = 1
+colorscheme zenburn
 
 " pathogen
 execute pathogen#incubate()
