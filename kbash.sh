@@ -102,6 +102,11 @@ else
 	PROMPT_COMMAND='PS1="$USERNAMECOLOR\u$NOCOLOR@$USERHOSTCOLOR\h $USERDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[0\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
 fi
 
+# Easy loading of virtualenvs
+function d {
+	source deps/bin/activate
+}
+
 # load keychain
 [ -x /usr/bin/keychain ] && [ `id -u` -ne 0 ] && eval `keychain -q -Q --eval id_rsa`
 
