@@ -22,13 +22,12 @@ if has("gui_running")
     set guifont=Inconsolata\ Medium\ 10
 end
 
-" Force 256-color
-set t_Co=256
+" Solarized color scheme
+let g:solarized_termtrans = 1
+colorscheme solarized
 
-" Zenburn color scheme
-let g:zenburn_high_Contrast = 1
-let g:zenburn_transparent = 1
-colorscheme zenburn
+" Solarized tweaks
+hi! LineNr ctermbg=none
 
 " pathogen
 execute pathogen#incubate()
