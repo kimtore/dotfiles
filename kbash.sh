@@ -76,6 +76,9 @@ alias less='less -R'
 # Include a colors file
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
 
+# Solarized directory listing colors
+eval `dircolors $KBASH/dircolors.ansi-universal`
+
 # Prompt colors
 export ROOTNAMECOLOR=$LTRED
 export ROOTHOSTCOLOR=$LTRED
