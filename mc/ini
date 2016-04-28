@@ -1,15 +1,5 @@
 
 [Colors]
-base_color=dnormal=brightblue,default:dfocus=brightcyan,default:dhotnormal=brightcyan,default:dhotfocus=white,default:menu=white,blue:menusel=yellow,cyan:menuhot=yellow,blue:menuhotsel=white,cyan:input=white,blue:reverse=brightblue,default:gauge=brightblue,default:normal=cyan,default:selected=white,blue:marked=yellow,default:directory=brightcyan,default:link=red,default:device=brightblue,default:special=red,default:core=brightred,default:executable=green,default:editnormal=lightgray,default:editbold=brightred,default:editmarked=black,lightgray
-
-rxvt-256color=
-color_terminals=
-
-screen=
-
-rxvt-unicode-256color=
-
-rxvt-unicode=
 
 [Midnight-Commander]
 show_backups=1

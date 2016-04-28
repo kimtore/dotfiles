@@ -40,6 +40,7 @@ export PATH=$PATH:~/bin:$KBASH/bin
 export VISUAL="vim"
 export EDITOR=$VISUAL
 export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
+export MC_SKIN=$KBASH/mc/solarized.ini
 
 # «old and crusty»
 unset TERMCAP
