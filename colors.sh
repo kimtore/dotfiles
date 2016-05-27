@@ -3,10 +3,6 @@
 # color.sh: set user friendly color names for escape codes.
 #
 
-if [ "$TERM" != "dumb" ]; then
-	eval "`dircolors -b`"
-fi
-
 # Dark colors
 BLACK='\[\033[0;30m\]'
 RED='\[\033[0;31m\]'

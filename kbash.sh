@@ -37,9 +37,10 @@ export KBASH=`dirname $scriptpath`
 # Environment variables
 export LC_ALL="en_US.UTF-8"
 export PATH=$PATH:~/bin:$KBASH/bin
-export VISUAL="TERM=xterm-256color /usr/bin/vim"
+export VISUAL="vim"
 export EDITOR=$VISUAL
 export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
+export MC_SKIN=$KBASH/mc/solarized.ini
 
 # «old and crusty»
 unset TERMCAP
@@ -57,7 +58,6 @@ alias ipcalc='ipcalc --nocolor'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias mkp='makepasswd --chars=30'
 alias g='ack-grep'
-alias vim="$VISUAL"
 
 # Fast directory traversal
 alias ..='cd ..'
@@ -76,6 +76,9 @@ alias less='less -R'
 
 # Include a colors file
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
+
+# Solarized directory listing colors
+eval `dircolors $KBASH/dircolors.ansi-universal`
 
 # Prompt colors
 export ROOTNAMECOLOR=$LTRED
@@ -102,6 +105,11 @@ if [ `id -u` -eq 0 ]; then
 else
 	PROMPT_COMMAND='PS1="$USERNAMECOLOR\u$NOCOLOR@$USERHOSTCOLOR\h $USERDIRCOLOR\w \`if [[ \$? = "0" ]]; then echo "\\[\\033[0\\\;30m\\]"; else echo "\\[\\033[1\\\;31m\\]"; fi\`\$ $NOCOLOR"'
 fi
+
+# Easy loading of virtualenvs
+function d {
+	source deps/bin/activate
+}
 
 # load keychain
 [ -x /usr/bin/keychain ] && [ `id -u` -ne 0 ] && eval `keychain -q -Q --eval id_rsa`
