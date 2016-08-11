@@ -111,6 +111,11 @@ function d {
 	source deps/bin/activate
 }
 
+# IPython3 handy
+function i {
+	ipython3
+}
+
 # load keychain
 [ -x /usr/bin/keychain ] && [ `id -u` -ne 0 ] && eval `keychain -q -Q --eval id_rsa`
 
