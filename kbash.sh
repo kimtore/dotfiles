@@ -31,8 +31,7 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 # KBASH: where are the source file tree?
-scriptpath=`readlink -m $BASH_ARGV`
-export KBASH=`dirname $scriptpath`
+export KBASH=$HOME/.kbash
 
 # Environment variables
 export LC_ALL="en_US.UTF-8"
@@ -43,15 +42,18 @@ export VIMINIT="set rtp+=$KBASH/vim | source $KBASH/rc/.vimrc"
 export MC_SKIN=$KBASH/mc/solarized.ini
 
 # «old and crusty»
-unset TERMCAP
+#unset TERMCAP
+
+# colorized ls
+export CLICOLOR="yes"
+export LSCOLORS="ExfxcxdxbxEgedabagacad"
 
 # Standard aliases
 alias c='clear'
-alias ls='ls --color'
-alias dir='ls --color --format=long'
-alias dri='ls --color --format=long'
-alias dirs='ls --color --format=long -d */'
-alias dirf='ls --color --format=long --classify | egrep -v "/$"'
+alias dir='ls -l'
+alias dri='ls -l'
+alias dirs='ls -l -d */'
+alias dirf='ls -l --classify | egrep -v "/$"'
 alias scpresume='rsync --partial --progress --rsh=ssh'
 alias gitall='git commit -a -m'
 alias ipcalc='ipcalc --nocolor'
@@ -78,7 +80,9 @@ alias less='less -R'
 [ -f "$KBASH/colors.sh" ] && source $KBASH/colors.sh
 
 # Solarized directory listing colors
-eval `dircolors $KBASH/dircolors.ansi-universal`
+if [ -x "/usr/bin/dircolors" ]; then
+    eval `dircolors $KBASH/dircolors.ansi-universal`
+fi
 
 # Prompt colors
 export ROOTNAMECOLOR=$LTRED
