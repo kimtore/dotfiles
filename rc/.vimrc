@@ -92,12 +92,14 @@ set formatoptions=l
 set lbr
 
 " nice dvorak'y window switching
-map <C-T> <C-W>j<C-W>_
-map <C-C> <C-W>k<C-W>_
-map <C-N> <Esc>:new<CR><C-W>_
-map <C-J> <Esc>:split<CR><C-W>_
-map <C-K> <Esc>:quit<CR><C-W>_
-set wmh=0 
+map <C-T> <C-W>j
+map <C-C> <C-W>k
+map <C-N> <Esc>:new<CR>
+map <C-J> <Esc>:split<CR>
+map <C-K> <Esc>:quit<CR>
+set wmh=0
+set noequalalways
+set winheight=99999
 
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
