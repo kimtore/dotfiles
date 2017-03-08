@@ -101,6 +101,9 @@ set wmh=0
 set noequalalways
 set winheight=99999
 
+" vim-go shouldn't steal our C-T mapping
+let g:go_def_mapping_enabled = 0
+
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
