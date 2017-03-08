@@ -28,7 +28,10 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+if [ -x /usr/bin/lesspipe ]; then
+	export LESSOPEN="| /usr/bin/lesspipe %s";
+	export LESSCLOSE="/usr/bin/lesspipe %s %s";
+fi
 
 # KBASH: where are the source file tree?
 export KBASH=$HOME/.kbash
