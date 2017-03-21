@@ -53,6 +53,7 @@ export LSCOLORS="ExfxcxdxbxEgedabagacad"
 
 # Standard aliases
 alias c='clear'
+alias ls='ls --color=auto'
 alias dir='ls -l'
 alias dri='ls -l'
 alias dirs='ls -l -d */'
