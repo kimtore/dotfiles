@@ -104,6 +104,9 @@ set winheight=99999
 " vim-go shouldn't steal our C-T mapping
 let g:go_def_mapping_enabled = 0
 
+" run GoImports when saving .go files
+let g:go_fmt_command="goimports"
+
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
