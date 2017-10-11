@@ -1,3 +1,2 @@
 #!/bin/sh
-curl http://canihazip.com/s 2>/dev/null
-echo
+curl https://icanhazip.com/s 2>/dev/null
