@@ -1,0 +1,10 @@
+! Map capslock to ctrl
+keycode 66 = Control_L
+clear Lock
+add Control = Control_L
+
+! Map shift+4 in Norwegian Dvorak to $
+keycode  13 = 4 dollar 4 dollar currency onequarter dollar onequarter 4 currency dollar onequarter
+
+! Use tilde directly without dead key function
+keycode  35 = asciitilde dead_circumflex dead_diaeresis dead_circumflex dead_tilde dead_caron dead_tilde
