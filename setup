@@ -1,0 +1,11 @@
+#!/bin/sh
+
+dot=dotfiles
+
+cd ~
+
+ln -sf $dot/tmux/.tmux.conf
+ln -sf $dot/vim/.vim
+ln -sf $dot/vim/.vimrc
+ln -sf $dot/zsh/.zlogin
+ln -sf $dot/zsh/.zshrc
