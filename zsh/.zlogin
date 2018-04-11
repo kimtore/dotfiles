@@ -1,0 +1,17 @@
+# vi: se ft=zsh:
+
+# Locale
+LANG="en_US.UTF-8"
+LC_NUMERIC="nb_NO.UTF-8"
+LC_COLLATE="nb_NO.UTF-8"
+LC_MONETARY="nb_NO.UTF-8"
+LC_PAPER="nb_NO.UTF-8"
+LC_NAME="nb_NO.UTF-8"
+LC_ADDRESS="nb_NO.UTF-8"
+LC_TELEPHONE="nb_NO.UTF-8"
+LC_MEASUREMENT="nb_NO.UTF-8"
+LC_IDENTIFICATION="nb_NO.UTF-8"
+export LANG LC_NUMERIC LC_COLLATE LC_MONETARY LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
+
+# Solarized theme for real consoles
+source ~/dotfiles/contrib/tty-solarized/tty-solarized-dark.sh
