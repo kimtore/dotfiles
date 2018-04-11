@@ -138,7 +138,7 @@ export GCC_COLORS=1             # Colors in gcc
 export PATH=$PATH:~/bin:~/dotfiles/bin
 export VISUAL="vim"
 export EDITOR=$VISUAL
-export MC_SKIN=$KBASH/mc/solarized.ini
+export MC_SKIN=~/dotfiles/mc/solarized.ini
 
 # Syntax highlighting
 source ~/dotfiles/contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
