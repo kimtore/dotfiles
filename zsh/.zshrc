@@ -166,3 +166,9 @@ alias g='ack'
 alias gitall='git commit -a -m'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
+
+# Local customizations
+custom_zsh=~/.zshrc.local
+if test -f $custom_zsh; then
+    source $custom_zsh
+fi
