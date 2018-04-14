@@ -167,6 +167,11 @@ alias gitall='git commit -a -m'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 
+# load keychain
+if test -x /usr/bin/keychain; then
+    eval `keychain -q -Q --eval id_rsa`
+fi
+
 # Local customizations
 custom_zsh=~/.zshrc.local
 if test -f $custom_zsh; then
