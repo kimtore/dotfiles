@@ -37,12 +37,26 @@ RPROMPT='${vcs_info_msg_0_}'
 prompt="%{$fg[$usercolor]%}%n%{$reset_color%}@%{$fg[$hostcolor]%}%m%{$reset_color%} %{$fg[$dircolor]%}%~%{$reset_color%} %{$fg[$signcolor]%}%#%{$reset_color%} "
 
 ##
-# Key bindings
+# vi mode
 ##
-# Lookup in /etc/termcap or /etc/terminfo else, you can get the right keycode
-# by typing ^v and then type the key or key combination you want to use.
-# "man zshzle" for the list of available actions
-bindkey '^R' history-incremental-pattern-search-backward
+bindkey -v
+
+bindkey '^r' history-incremental-pattern-search-backward
+bindkey '^p' up-history
+bindkey '^n' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[blue]%}[% NORMAL]% %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} ${vcs_info_msg_0_} $EPS1"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
 ##
 # Completion
@@ -154,6 +168,11 @@ alias gitall='git commit -a -m'
 alias mci='mvn clean install'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
+
+# load keychain
+if test -x /usr/bin/keychain; then
+    eval `keychain -q -Q --eval id_rsa`
+fi
 
 # Local customizations
 custom_zsh=~/.zshrc.local
