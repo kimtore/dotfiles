@@ -4,8 +4,8 @@ dot=dotfiles
 
 cd ~
 
-ln -sf $dot/tmux/.tmux.conf
-ln -sf $dot/vim/.vim
-ln -sf $dot/vim/.vimrc
-ln -sf $dot/zsh/.zlogin
-ln -sf $dot/zsh/.zshrc
+ln -vsf $dot/tmux/.tmux.conf
+ln -vsf $dot/vim/.vim
+ln -vsf $dot/vim/.vimrc
+ln -vsf $dot/zsh/.zlogin
+ln -vsf $dot/zsh/.zshrc
