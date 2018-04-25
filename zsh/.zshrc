@@ -170,6 +170,13 @@ alias mci='mvn clean install'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 
+# Quick directory switcher
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
 # load keychain
 if test -x /usr/bin/keychain; then
     eval `keychain -q -Q --eval id_rsa`
