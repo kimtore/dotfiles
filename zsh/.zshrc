@@ -70,6 +70,7 @@ setopt always_to_end            # when completing from the middle of a word, mov
 setopt complete_in_word         # allow completion from within a word/phrase
 unsetopt correct                # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
+setopt menucomplete             # auto-complete the first menu item automatically
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
 zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
