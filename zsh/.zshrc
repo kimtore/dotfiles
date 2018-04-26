@@ -182,6 +182,9 @@ if test -x /usr/bin/keychain; then
     eval `keychain -q -Q --eval id_rsa`
 fi
 
+# FZF shell integration
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Local customizations
 custom_zsh=~/.zshrc.local
 if test -f $custom_zsh; then
