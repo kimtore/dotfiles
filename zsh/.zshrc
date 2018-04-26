@@ -133,7 +133,7 @@ setopt bang_hist                # !keyword
 # Various
 ##
 setopt auto_cd                  # if command is a path, cd into it
-setopt auto_remove_slash        # self explicit
+unsetopt auto_remove_slash      # self explicit
 setopt chase_links              # resolve symlinks
 setopt extended_glob            # activate complex pattern globbing
 setopt glob_dots                # include dotfiles in globbing
