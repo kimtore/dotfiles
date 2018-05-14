@@ -153,7 +153,7 @@ print -Pn "\e]0; %n@%M: %~\a"   # terminal title
 export GCC_COLORS=1             # Colors in gcc
 
 # Environment variables
-export PATH=$PATH:~/bin:~/dotfiles/bin
+export PATH=$PATH:~/bin:~/go/bin:~/dotfiles/bin
 export VISUAL="vim"
 export EDITOR=$VISUAL
 export MC_SKIN=~/dotfiles/mc/solarized.ini
