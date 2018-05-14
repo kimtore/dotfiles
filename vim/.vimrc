@@ -107,9 +107,6 @@ let g:go_def_mapping_enabled = 0
 " run GoImports when saving .go files
 let g:go_fmt_command="goimports"
 
-" ignore old versions of Vim when loading vim-go
-let g:go_version_warning = 0
-
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
