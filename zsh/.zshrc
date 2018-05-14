@@ -169,6 +169,7 @@ alias dri='ls -l'
 alias g='ack'
 alias gita='git commit -a'
 alias gitall='git commit -a -m'
+alias i='ipython3'
 alias mci='mvn clean install'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
@@ -184,6 +185,12 @@ alias ......='cd ../../../../..'
 if test -x /usr/bin/keychain; then
     eval `keychain -q -Q --eval id_rsa`
 fi
+
+# easy access to syslog
+if ! whence ccze >/dev/null 2>&1; then
+    alias ccze='cat'
+fi
+alias sy='tail -f /var/log/syslog | ccze'
 
 # FZF shell integration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
