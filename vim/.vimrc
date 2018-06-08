@@ -19,7 +19,7 @@ set nofoldenable
 
 " GUI options
 if has("gui_running")
-    set guifont=Inconsolata\ Medium\ 10
+    set guifont=Inconsolata:h14
 end
 
 " Solarized color scheme
