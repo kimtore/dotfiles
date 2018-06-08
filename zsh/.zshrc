@@ -49,7 +49,8 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 
 # support mac os x delete key
-bindkey -a "\e[3~" delete-char
+bindkey '\e[3~' delete-char
+bindkey -a '\e[3~' delete-char
 
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[blue]%}[% NORMAL]% %{$reset_color%}"
