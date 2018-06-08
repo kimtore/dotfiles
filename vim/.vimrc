@@ -109,6 +109,7 @@ let g:go_fmt_command="goimports"
 
 " quick-jump to definition
 map <Leader>d :YcmCompleter GoToDefinition<CR>
+map <Leader>b :GoBuild<CR>
 
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
