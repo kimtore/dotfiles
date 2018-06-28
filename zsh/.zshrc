@@ -218,6 +218,7 @@ alias sy='tail -f /var/log/syslog | ccze'
 
 # Kubernetes completion
 if (( $+commands[kubectl] )); then
+    mkdir -p ~/.cache
     cachefile=~/.cache/_kubectl_completion
     if [ ! -f $cachefile ]; then
         $commands[kubectl] completion zsh > $cachefile
