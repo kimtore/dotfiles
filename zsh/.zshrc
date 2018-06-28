@@ -134,6 +134,25 @@ setopt share_history            # share hist between sessions
 setopt bang_hist                # !keyword
 
 ##
+# Alias expansion
+##
+typeset -a ealiases
+ealiases=()
+
+function expand-ealias()
+{
+    zle _expand_alias
+    zle expand-word
+    zle magic-space
+}
+
+zle -N expand-ealias
+
+bindkey -M viins ' '   expand-ealias
+bindkey -M viins '^ '  magic-space     # control-space to bypass completion
+bindkey -M isearch " " magic-space     # normal space during searches
+
+##
 # Various
 ##
 setopt auto_cd                  # if command is a path, cd into it
@@ -196,6 +215,17 @@ alias sy='tail -f /var/log/syslog | ccze'
 
 # FZF shell integration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Kubernetes completion
+if (( $+commands[kubectl] )); then
+    cachefile=~/.cache/_kubectl_completion
+    if [ ! -f $cachefile ]; then
+        echo "foo"
+        $commands[kubectl] completion zsh > $cachefile
+    fi
+    source $cachefile
+    alias k=kubectl
+fi
 
 # Local customizations
 custom_zsh=~/.zshrc.local
