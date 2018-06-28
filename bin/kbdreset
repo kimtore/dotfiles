@@ -1,0 +1,5 @@
+#!/bin/bash
+setxkbmap -model pc105 -layout no -variant dvorak -option lv3:ralt_switch_multikey
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+xset m 0 0
+xset r rate 200 30

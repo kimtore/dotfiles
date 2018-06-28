@@ -220,7 +220,6 @@ alias sy='tail -f /var/log/syslog | ccze'
 if (( $+commands[kubectl] )); then
     cachefile=~/.cache/_kubectl_completion
     if [ ! -f $cachefile ]; then
-        echo "foo"
         $commands[kubectl] completion zsh > $cachefile
     fi
     source $cachefile
