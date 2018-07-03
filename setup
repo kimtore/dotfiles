@@ -9,3 +9,4 @@ ln -vsf $dot/vim/.vim
 ln -vsf $dot/vim/.vimrc
 ln -vsf $dot/zsh/.zlogin
 ln -vsf $dot/zsh/.zshrc
+mkdir -p ~/.vimtemp
