@@ -227,6 +227,10 @@ if (( $+commands[kubectl] )); then
     alias k=kubectl
 fi
 
+# Kubernetes context and namespace switching
+kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
+kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
+
 # Local customizations
 custom_zsh=~/.zshrc.local
 if test -f $custom_zsh; then
