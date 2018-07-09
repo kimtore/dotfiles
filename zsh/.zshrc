@@ -192,6 +192,7 @@ alias gitall='git commit -a -m'
 alias gs='git status'
 alias i='ipython3'
 alias mci='mvn clean install'
+alias mkp='openssl rand -base64 48'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 
