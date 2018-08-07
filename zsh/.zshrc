@@ -195,6 +195,7 @@ alias mci='mvn clean install'
 alias mkp='openssl rand -base64 48'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
+alias tf='terraform'
 
 # Quick directory switcher
 alias ..='cd ..'
