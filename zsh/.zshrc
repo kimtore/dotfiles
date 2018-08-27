@@ -234,6 +234,9 @@ fi
 kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 
+# Return absolute path to files
+gp() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}" }
+
 # Local customizations
 custom_zsh=~/.zshrc.local
 if test -f $custom_zsh; then
