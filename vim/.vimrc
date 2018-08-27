@@ -30,11 +30,11 @@ colorscheme solarized
 hi! LineNr ctermbg=none
 
 " pathogen
-execute pathogen#incubate()
+"execute pathogen#incubate()
 " In certain Vim versions, and with a global config that sets :syntax on
 " before ~/.vimrc is loaded, #infect breaks filetype detection.
 " https://github.com/tpope/vim-pathogen/issues/38
-"execute pathogen#infect()
+execute pathogen#infect()
 
 " proper searching
 set ignorecase
