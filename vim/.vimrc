@@ -109,6 +109,9 @@ set wmh=0
 set noequalalways
 set winheight=99999
 
+" proper tab settings in Go files
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
 " vim-go shouldn't steal our C-T mapping
 let g:go_def_mapping_enabled = 0
 
