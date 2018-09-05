@@ -191,7 +191,6 @@ alias gc='git commit -m'
 alias gita='git commit -a'
 alias gitall='git commit -a -m'
 alias gs='git status'
-alias i='ipython3'
 alias mci='mvn clean install'
 alias mkp='openssl rand -base64 48'
 alias root='sudo su -'
@@ -236,6 +235,9 @@ kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 
 # Return absolute path to files
 gp() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}" }
+
+# Start turbocharged calculator
+i() { ipython3 || ipython || python3 || python }
 
 # Local customizations
 custom_zsh=~/.zshrc.local
