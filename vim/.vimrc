@@ -54,14 +54,22 @@ autocmd BufRead * set nocindent
 " python indenting
 autocmd BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
+" remap leader key
+let mapleader = ','
+
 " don't move comments to start of line
 inoremap # X<c-h>#
 
-" trim whitespace from saved files
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+" whitespace trimming
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+map <Leader>w :call TrimWhitespace()<CR>
 
-" remap leader key
-let mapleader = ','
+" automatic whitespace trim on save
+"autocmd BufWritePre * :call TrimWhitespace()
 
 " don't intrude into my clipboard please
 if has("clipboard")
