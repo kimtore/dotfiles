@@ -233,11 +233,15 @@ fi
 kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 
-# Return absolute path to files
-gp() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}" }
+# Fuzzy-find source code
+findsrc() { cd $(fd -t d . ~/src/ ~/go/src/ | sort | fzf) }
+bindkey -s '^f' "findsrc\n"
 
 # Start turbocharged calculator
 i() { ipython3 || ipython || python3 || python }
+
+# Return absolute path to files
+gp() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}" }
 
 # Local customizations
 custom_zsh=~/.zshrc.local
