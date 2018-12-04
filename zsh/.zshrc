@@ -234,7 +234,10 @@ kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
 
 # Fuzzy-find source code
-findsrc() { cd $(fd -t d . ~/src/ ~/go/src/ | sort | fzf) }
+findsrc() {
+    dest=$(fd -t d . ~/src/ ~/go/src/ | sort | fzf)
+    [ $? -eq 0 ] && cd $dest
+}
 bindkey -s '^f' "findsrc\n"
 
 # Start turbocharged calculator
