@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$1" == "dvp" ]; then
+    echo "programmer's dvorak"
+    setxkbmap -model pc105 -layout us -variant dvp -option lv3:rwin_switch,compose:menu
+elif [ "$1" == "no" ]; then
+    echo "norsk"
+    setxkbmap -model pc105 -layout no -variant "" -option lv3:ralt_switch_multikey
+else
+    echo "norsk dvorak"
+    setxkbmap -model pc105 -layout no -variant dvorak -option lv3:ralt_switch_multikey
+fi
+
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+
+xset m 0 0
+xset r rate 200 30
