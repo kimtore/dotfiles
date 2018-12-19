@@ -5,6 +5,7 @@ dot=dotfiles
 cd ~
 
 ln -vsf $dot/tmux/.tmux.conf
+ln -vsf $dot/mc ~/.config/mc
 ln -vsf $dot/vim/.vim
 ln -vsf $dot/vim/.vimrc
 ln -vsf $dot/zsh/.zlogin
