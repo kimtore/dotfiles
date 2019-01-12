@@ -7,6 +7,13 @@ elif [ "$1" == "no" ]; then
     echo "norsk"
     setxkbmap -model pc105 -layout no -variant "" -option lv3:ralt_switch_multikey
     [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+elif [ "$1" == "cycle" ]; then
+    variant=`setxkbmap -query | grep variant | awk '{print $2}'`
+    if [ "$variant" == "dvp" ]; then
+        $0
+    else
+        $0 dvp
+    fi
 else
     echo "norsk dvorak"
     setxkbmap -model pc105 -layout no -variant dvorak -option lv3:ralt_switch_multikey
