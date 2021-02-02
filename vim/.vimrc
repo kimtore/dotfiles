@@ -52,7 +52,10 @@ set backupdir=~/.vimtemp
 autocmd BufRead * set nocindent
 
 " python indenting
-autocmd BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta et smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
+" Jenkinsfile
+autocmd BufNewFile,BufRead Jenkinsfile setf groovy
 
 " remap leader key
 let mapleader = ','

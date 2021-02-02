@@ -23,7 +23,7 @@ fast_reload_msg_shown=0
 confirm_delete=true
 confirm_overwrite=true
 confirm_execute=false
-confirm_exit=true
+confirm_exit=false
 safe_delete=false
 mouse_repeat_rate=100
 double_click_speed=250
@@ -118,6 +118,8 @@ editor_state_full_filename=true
 editor_ask_filename_before_edit=false
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
+
+safe_overwrite=false
 
 [Layout]
 message_visible=0

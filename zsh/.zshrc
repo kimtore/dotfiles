@@ -13,7 +13,7 @@ select-word-style bash
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%} [%{$fg[blue]%}%b%{$reset_color%}] %{$fg[yellow]%}%s%{$reset_color%}:%r"
+zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}"
 precmd() {  # run before each prompt
     vcs_info
 }
@@ -33,8 +33,7 @@ else
     dircolor="yellow"
     signcolor="black"
 fi
-RPROMPT='${vcs_info_msg_0_}'
-prompt="%{$fg[$usercolor]%}%n%{$reset_color%}@%{$fg[$hostcolor]%}%m%{$reset_color%} %{$fg[$dircolor]%}%~%{$reset_color%} %{$fg[$signcolor]%}%#%{$reset_color%} "
+prompt=$'\n%{$fg[$dircolor]%}%~%{$reset_color%} ${vcs_info_msg_0_}\n%{$fg[$usercolor]%}%n%{$reset_color%}@%{$fg[$hostcolor]%}%m%{$reset_color%} %{$fg[$signcolor]%}%#%{$reset_color%} '
 
 ##
 # vi mode
@@ -54,7 +53,6 @@ bindkey -a '\e[3~' delete-char
 
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[blue]%}[% NORMAL]% %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} ${vcs_info_msg_0_} $EPS1"
     zle reset-prompt
 }
 
