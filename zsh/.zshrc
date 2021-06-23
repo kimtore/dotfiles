@@ -188,12 +188,15 @@ alias g='ack'
 alias gc='git commit -m'
 alias gita='git commit -a'
 alias gitall='git commit -a -m'
+alias gitp='git'
 alias gs='git status'
 alias mci='mvn clean install'
 alias mkp='openssl rand -base64 48'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias tf='terraform'
+alias amke='make'
+alias bugs='rg -i "(fixme|todo)"'
 
 # Quick directory switcher
 alias ..='cd ..'
@@ -228,8 +231,10 @@ if (( $+commands[kubectl] )); then
 fi
 
 # Kubernetes context and namespace switching
-kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
-kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
+alias kc=kubectx
+alias kn=kubens
+kgp () { kubectl get pod }
+kl () { kubectl logs deploy/$1 }
 
 # Fuzzy-find source code
 findsrc() {
