@@ -133,15 +133,24 @@ setopt bang_hist                # !keyword
 
 ##
 # Alias expansion
+# Use 'ealias' to define an alias that should be expanded
 ##
 typeset -a ealiases
 ealiases=()
 
+function ealias()
+{
+    alias $1
+    ealiases+=(${1%%\=*})
+}
+
 function expand-ealias()
 {
+  if [[ $LBUFFER =~ "(^|[;|&])\s*(${(j:|:)ealiases})\$" ]]; then
     zle _expand_alias
     zle expand-word
-    zle magic-space
+  fi
+  zle magic-space
 }
 
 zle -N expand-ealias
@@ -227,7 +236,7 @@ if (( $+commands[kubectl] )); then
         $commands[kubectl] completion zsh > $cachefile
     fi
     source $cachefile
-    alias k=kubectl
+    ealias k=kubectl
 fi
 
 # Kubernetes context and namespace switching
