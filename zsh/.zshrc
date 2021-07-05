@@ -133,15 +133,24 @@ setopt bang_hist                # !keyword
 
 ##
 # Alias expansion
+# Use 'ealias' to define an alias that should be expanded
 ##
 typeset -a ealiases
 ealiases=()
 
+function ealias()
+{
+    alias $1
+    ealiases+=(${1%%\=*})
+}
+
 function expand-ealias()
 {
+  if [[ $LBUFFER =~ "(^|[;|&])\s*(${(j:|:)ealiases})\$" ]]; then
     zle _expand_alias
     zle expand-word
-    zle magic-space
+  fi
+  zle magic-space
 }
 
 zle -N expand-ealias
@@ -188,12 +197,15 @@ alias g='ack'
 alias gc='git commit -m'
 alias gita='git commit -a'
 alias gitall='git commit -a -m'
+alias gitp='git'
 alias gs='git status'
 alias mci='mvn clean install'
 alias mkp='openssl rand -base64 48'
 alias root='sudo su -'
 alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias tf='terraform'
+alias amke='make'
+alias bugs='rg -i "(fixme|todo)"'
 
 # Quick directory switcher
 alias ..='cd ..'
@@ -224,12 +236,14 @@ if (( $+commands[kubectl] )); then
         $commands[kubectl] completion zsh > $cachefile
     fi
     source $cachefile
-    alias k=kubectl
+    ealias k=kubectl
 fi
 
 # Kubernetes context and namespace switching
-kc () { kubectx $(kubectx | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
-kn () { kubens $(kubens | fzf --ansi -1 -q "${1}"); tmux refresh-client -S }
+alias kc=kubectx
+alias kn=kubens
+kgp () { kubectl get pod }
+kl () { kubectl logs deploy/$1 }
 
 # Fuzzy-find source code
 findsrc() {

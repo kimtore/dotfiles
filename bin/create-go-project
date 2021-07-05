@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Create a new Go project.
+# Syntax: create-go-project github.com/path/to/repo
+
+name=$1
+dirname=${name#*/}
+basename=${name##*/}
+
+set -x
+
+cd ~/src
+mkdir -p ${dirname}
+cd ${dirname}
+mkdir -p cmd/${basename}
+mkdir pkg/
+go mod init ${name}
+git init
+echo "# ${basename}" > README.md
+echo "package main" > cmd/${basename}/main.go
+echo -e "${basename}:\n\tgo build -o bin/${basename} cmd/${basename}/*.go\n" > Makefile
+git add .
+git commit -a -m "initial commit"
