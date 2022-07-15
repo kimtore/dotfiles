@@ -4,18 +4,25 @@
 
 syntax on
 filetype plugin indent on
+set background=dark
+set bs=indent,eol,start
+set encoding=utf-8
+set expandtab
+set modeline
+set mouse=a
+set nocindent
+set nofoldenable
+set nu
+set ruler
+set shiftwidth=4
+set showmode
+set smartindent
+set smarttab
+set softtabstop=0
+set tabstop=4
+set ttyfast
 set ttymouse=xterm
 set visualbell
-set mouse=a
-set bs=2
-set ruler
-set background=dark
-set nocindent
-set smartindent
-set showmode
-set modeline
-set nu
-set nofoldenable
 
 " GUI options
 if has("gui_running")
@@ -34,6 +41,7 @@ hi! LineNr ctermbg=none
 " In certain Vim versions, and with a global config that sets :syntax on
 " before ~/.vimrc is loaded, #infect breaks filetype detection.
 " https://github.com/tpope/vim-pathogen/issues/38
+" fixed in Vim 7.3.430
 execute pathogen#infect()
 
 " proper searching
@@ -92,11 +100,6 @@ command! W call WriteCreatingDirs()
 " python tabs
 " modeline: /* vim: set ts=4 sw=4 sts=4 sta et: */
 " http://www.vex.net/~x/python_and_vim.html
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set smarttab
 
 " no word wrap
 set formatoptions=l
@@ -114,16 +117,6 @@ set winheight=99999
 
 " proper tab settings in Go files
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-
-" vim-go shouldn't steal our C-T mapping
-let g:go_def_mapping_enabled = 0
-
-" run GoImports when saving .go files
-let g:go_fmt_command="goimports"
-
-" quick-jump to definition
-map <Leader>d :YcmCompleter GoToDefinition<CR>
-map <Leader>b :GoBuild<CR>
 
 " NERD tree
 map <C-D> :NERDTreeToggle<CR>
