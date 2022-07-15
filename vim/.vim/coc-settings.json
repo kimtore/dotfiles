@@ -1,0 +1,14 @@
+{
+    "languageserver": {
+        "elmLS": {
+            "command": "/opt/homebrew/bin/elm-language-server",
+            "filetypes": ["elm"],
+            "rootPatterns": ["elm.json"],
+            "elmPath": "/opt/homebrew/bin/elm",
+            "elmTestPath": "/opt/homebrew/bin/elm-test",
+            "elmReviewPath": "/opt/homebrew/bin/elm-review",
+            "elmFormatPath": "/opt/homebrew/bin/elm-format"
+        }
+    },
+    "coc.preferences.formatOnSaveFiletypes": ["elm"]
+}
