@@ -245,6 +245,10 @@ alias kn=kubens
 kgp () { kubectl get pod }
 kl () { kubectl logs deploy/$1 }
 
+# systemctl and journalctl are such FUBAR names
+ealias j=journalctl
+ealias s=systemctl
+
 # Fuzzy-find source code
 findsrc() {
     dest=$(fd -t d . ~/src/ ~/go/src/ | sort | fzf)
