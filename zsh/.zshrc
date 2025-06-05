@@ -198,6 +198,8 @@ alias gc='git commit -m'
 alias gita='git commit -a'
 alias gitall='git commit -a -m'
 alias gitp='git'
+alias gti='git'
+alias gith='git'
 alias gs='git status'
 alias mci='mvn clean install'
 alias mkp='openssl rand -base64 48'
@@ -206,6 +208,10 @@ alias tax='tmux detach >/dev/null 2>&1; tmux attach || tmux'
 alias tf='terraform'
 alias amke='make'
 alias bugs='rg -i "(fixme|todo)"'
+alias rgi='rg --no-ignore'
+function jq-indent {
+    jq . $* | bat -l json
+}
 
 # Quick directory switcher
 alias ..='cd ..'
@@ -236,7 +242,11 @@ if (( $+commands[kubectl] )); then
         $commands[kubectl] completion zsh > $cachefile
     fi
     source $cachefile
-    ealias k=kubectl
+    if (( $+commands[kubecolor] )); then
+        ealias k=kubecolor
+    else
+        ealias k=kubectl
+    fi
 fi
 
 # Kubernetes context and namespace switching
@@ -244,6 +254,11 @@ alias kc=kubectx
 alias kn=kubens
 kgp () { kubectl get pod }
 kl () { kubectl logs deploy/$1 }
+
+# JSON
+js() {
+    jq $* | bat -l json
+}
 
 # systemctl and journalctl are such FUBAR names
 ealias j=journalctl
