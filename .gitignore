@@ -1,4 +1,6 @@
 custom.sh
 .*.sw*
 vim/.vim/local.vim
+vim/.vim/plugins.vim
+vim/.vim/bundle
 vim/.netrwhist

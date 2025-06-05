@@ -2,6 +2,23 @@
 """ Kim's Vim """
 """""""""""""""""
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Global plugins
+Plugin 'preservim/nerdtree'
+
+" locally installed plugins
+if filereadable($HOME."/.vim/plugins.vim")
+    source $HOME/.vim/plugins.vim"
+endif
+
+call vundle#end()            " required
+
 syntax on
 filetype plugin indent on
 set background=dark
@@ -130,8 +147,6 @@ map Q <Nop>
 
 " switch between header and cpp file
 map <C-h> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
-
-source $HOME/.vim/coc.vim"
 
 " --- any local modifications
 if filereadable($HOME."/.vim/local.vim")
