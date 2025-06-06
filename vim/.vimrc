@@ -60,14 +60,6 @@ colorscheme solarized
 " Solarized tweaks
 hi! LineNr ctermbg=none
 
-" pathogen
-"execute pathogen#incubate()
-" In certain Vim versions, and with a global config that sets :syntax on
-" before ~/.vimrc is loaded, #infect breaks filetype detection.
-" https://github.com/tpope/vim-pathogen/issues/38
-" fixed in Vim 7.3.430
-execute pathogen#infect()
-
 " proper searching
 set ignorecase
 set smartcase
