@@ -232,6 +232,9 @@ alias sy='sudo dmesg -w'
 # FZF shell integration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# fzf history search
+source ~/dotfiles/zsh/zsh-fzf-history-search.zsh
+
 # Kubernetes completion
 if (( $+commands[kubectl] )); then
     mkdir -p ~/.cache
