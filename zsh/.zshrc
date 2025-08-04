@@ -212,6 +212,7 @@ alias rgi='rg --no-ignore'
 function jq-indent {
     jq . $* | bat -l json
 }
+alias duf='duf --only local,network'
 
 # Quick directory switcher
 alias ..='cd ..'
@@ -226,10 +227,7 @@ if test -x /usr/bin/keychain; then
 fi
 
 # easy access to syslog
-if ! whence ccze >/dev/null 2>&1; then
-    alias ccze='cat'
-fi
-alias sy='tail -f /var/log/syslog | ccze'
+alias sy='sudo dmesg -w'
 
 # FZF shell integration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
