@@ -229,11 +229,9 @@ fi
 # easy access to syslog
 alias sy='sudo dmesg -w'
 
-# FZF shell integration
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# fzf history search
+# fzf history search and shell integration
 source ~/dotfiles/zsh/zsh-fzf-history-search.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
 # Kubernetes completion
 if (( $+commands[kubectl] )); then
