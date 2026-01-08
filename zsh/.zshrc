@@ -209,6 +209,8 @@ alias tf='terraform'
 alias amke='make'
 alias bugs='rg -i "(fixme|todo)"'
 alias rgi='rg --no-ignore'
+# Sort data, count occurrences and report uniques
+alias occ='sort | uniq -c | sort -nb'
 function jq-indent {
     jq . $* | bat -l json
 }
