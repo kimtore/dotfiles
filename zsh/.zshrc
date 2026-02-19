@@ -243,10 +243,9 @@ if (( $+commands[kubectl] )); then
         $commands[kubectl] completion zsh > $cachefile
     fi
     source $cachefile
+    ealias k=kubectl
     if (( $+commands[kubecolor] )); then
-        ealias k=kubecolor
-    else
-        ealias k=kubectl
+        alias kubectl=kubecolor
     fi
 fi
 
